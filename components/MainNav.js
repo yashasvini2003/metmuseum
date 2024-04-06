@@ -86,9 +86,9 @@ const MainNav = () => {
   };
 
   const handleItemClick = async (artwork) => {
-    if(searchQuery){
-    setSearchHistory(await addToHistory(`title=true&q=${searchQuery}`));
-    setSearchQuery("");
+    if (searchQuery) {
+      setSearchHistory(await addToHistory(`title=true&q=${searchQuery}`));
+      setSearchQuery("");
     }
     if (artwork.objectID !== 0) {
       router.push(`/artwork/${artwork.objectID}`);
@@ -123,6 +123,10 @@ const MainNav = () => {
     };
   };
 
+  const handleBrandClick = () => {
+    router.push(`/`);
+  }
+
   return (
     <>
       <Navbar
@@ -131,7 +135,7 @@ const MainNav = () => {
         expanded={isExpanded}
       >
         <Container>
-          <Navbar.Brand>Yashasvini Bhanuraj</Navbar.Brand>
+          <Navbar.Brand onClick={handleBrandClick}>Yashasvini Bhanuraj</Navbar.Brand>
           <Navbar.Toggle
             aria-controls="basic-navbar-nav"
             onClick={() => setIsExpanded(!isExpanded)}
